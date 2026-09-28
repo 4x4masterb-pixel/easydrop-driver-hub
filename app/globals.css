@@ -89,3 +89,7 @@
 .identity{grid-template-columns:1fr;gap:16px}
 .identity input,.identity select{width:100%;box-sizing:border-box;min-height:50px}
 }
+
+/* Match depot selector typography and height to trainer/trainee inputs */
+.identity select{font:inherit;font-size:inherit;font-weight:inherit;line-height:1.4;min-height:58px;padding:14px 18px;border:1px solid #ccd8e2;border-radius:5px;background-color:#fff;color:#23303e;box-sizing:border-box;width:100%}
+.identity select option{font-size:inherit}
