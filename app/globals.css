@@ -35,3 +35,5 @@
 .homeBrand .parcelLogo{width:48px;height:48px;display:block;flex:0 0 48px}
 
 .homeBrand .parcelLogo{width:52px;height:52px;overflow:visible;filter:drop-shadow(0 2px 5px rgba(0,0,0,.25))}
+
+.addressTool{margin:18px 0;padding:20px;border-radius:10px;background:#071f34;border:1px solid #2a506a;border-left:4px solid #18a2f2;color:#fff}.addressTool>small{color:#58bbff;font-size:9px;letter-spacing:2px;font-weight:900}.addressTool h2{margin:5px 0 7px}.addressTool p{color:#aac0d0;line-height:1.5;margin:0 0 15px}.addressTool .resourceButtons{display:grid;grid-template-columns:1fr 1fr}.addressTool .resourceButtons a{min-height:48px}@media(max-width:420px){.addressTool .resourceButtons{grid-template-columns:1fr}}
