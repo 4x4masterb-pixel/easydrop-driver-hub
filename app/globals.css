@@ -97,3 +97,7 @@
 /* Trainer details: selected depot text matches typed names */
 .identity input,.identity select{font-family:inherit!important;font-size:20px!important;font-weight:700!important;line-height:1.4!important;min-height:58px!important;padding:14px 18px!important;color:#23303e!important}
 .identity select{appearance:auto;-webkit-appearance:menulist}
+
+/* Each training stage is an independent tick, not an exclusive radio choice. */
+.assRow .radio:has(input:checked) .radioDot{color:#168cf0}
+.assRow .radio input:focus-visible+.radioDot{outline:2px solid #168cf0;outline-offset:3px;border-radius:3px}
