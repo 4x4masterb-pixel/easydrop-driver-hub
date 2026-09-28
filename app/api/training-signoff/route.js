@@ -4,7 +4,7 @@ export async function POST(req){
  try{
   const b=await req.json();
   if(!b.trainer||!b.trainee||!b.outcome||!b.solo||!checks.every(c=>b.scores?.[c])) return Response.json({error:"Assessment is incomplete."},{status:400});
-  const to=process.env.TRAINING_EMAIL, key=process.env.RESEND_API_KEY;
+  const to='centraloffice@easydropcouriers.com', key=process.env.RESEND_API_KEY;
   if(!to||!key) return Response.json({error:"Training email is not configured yet."},{status:503});
   const signedAt=new Date().toISOString();
   const rows=checks.map(c=>`<tr><td style="padding:8px;border-bottom:1px solid #ddd">${esc(c)}</td><td style="padding:8px;border-bottom:1px solid #ddd"><b>${esc(b.scores[c])}</b></td></tr>`).join("");
