@@ -72,3 +72,20 @@
 
 /* Training header: match Home's arrow-free cube logo */
 .sideBrand>.parcelLogo{display:block;width:46px;height:46px;flex:0 0 46px;transform:none;border:0;background:none}
+
+/* Trainer assessment: mobile-first competency cards, no horizontal scroll */
+.assRow .radioLabel{display:none}
+.identity select{width:100%;min-width:0;box-sizing:border-box;background:#fff;border:1px solid #ccd8e2;color:#17212b;border-radius:7px;padding:14px;font:inherit}
+@media(max-width:760px){
+.assessment{overflow:visible;border:0;background:transparent;display:grid;gap:12px}
+.assHead{display:none}
+.assRow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0;padding:16px;background:#fff;border:1px solid #dce4eb;border-left:4px solid #168cf0;border-radius:10px;box-shadow:0 3px 12px #102c4410}
+.assRow>b{grid-column:1/-1;font-size:16px;line-height:1.35;margin-bottom:5px}
+.assRow .radio{display:flex;align-items:center;justify-content:flex-start;gap:8px;padding:12px 10px;border:1px solid #d7e4ee;border-radius:8px;position:relative;min-width:0;font-size:13px;font-weight:650;color:#233b50;background:#f7fbff}
+.assRow .radio:has(input:checked){border-color:#168cf0;background:#e6f4ff;color:#07558f}
+.assRow .radioDot{font-size:18px;line-height:1;color:#b8c7d4}
+.assRow .radio input:checked+.radioDot{color:#168cf0}
+.assRow .radioLabel{display:inline;line-height:1.2}
+.identity{grid-template-columns:1fr;gap:16px}
+.identity input,.identity select{width:100%;box-sizing:border-box;min-height:50px}
+}
