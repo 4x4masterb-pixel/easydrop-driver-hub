@@ -1,0 +1,16 @@
+"use client";
+import {useState} from "react";
+const items=[
+["Before scanning","Morning & Loading","Locate every pallet and cage allocated to your route before scanning the first parcel. Confirm you have all freight, then organise the load so stops remain accessible."],
+["Cannot find a stop","Delm8 & Routing","Use Delm8 as your primary route-finding tool. Check the postcode and address carefully. If you are unsure how to use a feature, raise it with your trainer or lead driver."],
+["Premium at risk","Premiums & ETAs","Premiums take priority. Reassess your sequence and escalate early to the lead driver or manager if a premium could fail. Do not wait until the ETA has passed."],
+["Running late","ETAs","Keep monitoring the route against ETA windows. If delay, traffic, loading or another issue puts service at risk, communicate early so support can be considered."],
+["Parcel not found","Freight","Recheck the van and load position, confirm the parcel was scanned/allocated correctly and contact the appropriate depot/lead if it remains missing."],
+["Delivery problem","Deliveries","Follow the required scan and delivery process. Use the correct outcome and obtain required proof. If the situation is unclear, contact your lead before creating an avoidable return."],
+["Collection due","Collections","Build collections into your route rather than leaving them until the end. If timing becomes a risk, escalate early. A collection must not fail through lack of communication."],
+["Unable to attempt","Returns & Unattempted","Zero unauthorised unattempted freight. Before returning freight that could not be attempted, contact your lead driver or manager and follow the instruction given."],
+["Vehicle defect","Vehicle","Complete checks before departure. Report damage, warning lights, tyre issues or other defects immediately. Do not ignore a safety-critical defect."],
+["AdBlue / fuel","Vehicle","Check fuel and AdBlue before the route. Keep AdBlue comfortably topped up and report abnormal consumption or warnings rather than allowing the vehicle to reach a critical level."],
+["Need support","Escalation","Raise problems while there is still time to solve them. Lead driver first where appropriate, then manager/depot escalation. Early communication protects the route."],
+["End of route","End of Day","Confirm all deliveries and collections are accounted for. Follow the depot process for returns and paperwork, report unresolved issues and leave the vehicle ready for its next use."]];
+export default function Guide(){const[q,setQ]=useState("");const shown=items.filter(x=>x.join(" ").toLowerCase().includes(q.toLowerCase()));return <main className="inner wide"><a href="/">← Home</a><p className="eyebrow">DRIVER QUICK GUIDE</p><h1>What do I do?</h1><p className="lead">Search the situation. Get the standard. If service is at risk, escalate early.</p><input className="search" value={q} onChange={e=>setQ(e.target.value)} placeholder="Search: premium, collection, parcel, vehicle..."/><div className="guideList">{shown.map(([s,c,d])=><article key={s}><small>{c}</small><h2>{s}</h2><p>{d}</p></article>)}</div></main>}
