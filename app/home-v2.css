@@ -11,3 +11,14 @@
 .v2Essentials{margin:37px 0}.v2Essentials h2{font-size:22px;color:#142b40;margin-bottom:15px}.v2Essentials>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.v2Essentials a{display:flex;justify-content:space-between;gap:10px;padding:14px 16px;border:1px solid #dce7f1;border-radius:10px;font-weight:700}.v2Essentials a span{color:#087ed0}.v2Standard{background:#f3f8fc;border-left:4px solid #087ed0;padding:20px;border-radius:9px}.v2Standard strong{font-size:11px;color:#087ed0;letter-spacing:1px}.v2Standard p{margin:7px 0 0;color:#42586c;line-height:1.5}
 @media(max-width:780px){.v2Home .v2Header{padding:12px 18px!important}.v2Home .v2Main{padding:32px 18px 55px}.v2Home .v2Menu{grid-template-columns:1fr 1fr}.v2Tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.v2Tile{min-height:165px;padding:17px!important}.v2Tile strong{font-size:17px}.v2Tile small{font-size:12px}.v2Essentials>div{grid-template-columns:1fr}}
 @media(max-width:400px){.v2Brand b{font-size:21px}.v2Brand small{font-size:9px}.v2Tile{min-height:176px}.v2AI{padding:15px!important}}
+
+/* Explicit light theme wins against legacy global and mobile rules. */
+html:has(.v2Home),body:has(.v2Home){background:#fff!important;color:#142b40!important;color-scheme:light!important}
+body:has(.v2Home) .v2Home,body:has(.v2Home) .v2Main{background:#fff!important;color:#142b40!important;color-scheme:light!important}
+body:has(.v2Home) .v2Header{background:#fff!important;color:#142b40!important;border-bottom:1px solid #dce7f1!important}
+body:has(.v2Home) .v2Brand b,body:has(.v2Home) .v2Main h1,body:has(.v2Home) .v2Tile strong,body:has(.v2Home) .v2AI strong,body:has(.v2Home) .v2Essentials h2{color:#142b40!important}
+body:has(.v2Home) .v2Intro,body:has(.v2Home) .v2Tile small,body:has(.v2Home) .v2AI small{color:#52677b!important}
+body:has(.v2Home) .v2Tile{background:#f1f8fe!important;border:1px solid #dce7f1!important;color:#142b40!important}
+body:has(.v2Home) .v2SearchInput,body:has(.v2Home) .v2SearchInput input{background:#fff!important;color:#142b40!important}
+body:has(.v2Home) .v2AI{background:#e8f4ff!important;color:#142b40!important}
+body:has(.v2Home) .v2Standard{background:#f3f8fc!important;color:#142b40!important}
