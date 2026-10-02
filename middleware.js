@@ -1,4 +1,6 @@
 import {NextResponse} from "next/server";
 const PUBLIC=["/login","/api/auth/login"];
-export function middleware(req){const p=req.nextUrl.pathname;if(PUBLIC.some(x=>p===x)||p.startsWith("/_next/")||p==="/favicon.ico"||p==="/manifest.webmanifest")return NextResponse.next();const token=req.cookies.get("ed_session")?.value;if(!token){const u=req.nextUrl.clone();u.pathname="/login";u.searchParams.set("next",p);return NextResponse.redirect(u)}return NextResponse.next()}
+const b64url=s=>{s=s.replace(/-/g,"+").replace(/_/g,"/");return Uint8Array.from(atob(s),c=>c.charCodeAt(0))};
+async function valid(token){try{const key=process.env.AUTH_SECRET;if(!key||!token)return false;const [p,s]=token.split(".");if(!p||!s)return false;const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(key),{name:"HMAC",hash:"SHA-256"},false,["verify"]);if(!await crypto.subtle.verify("HMAC",k,b64url(s),new TextEncoder().encode(p)))return false;const data=JSON.parse(new TextDecoder().decode(b64url(p)));return Number(data.exp)>Date.now()}catch{return false}}
+export async function middleware(req){const p=req.nextUrl.pathname;if(PUBLIC.some(x=>p===x)||p.startsWith("/_next/")||p==="/favicon.ico"||p==="/manifest.webmanifest")return NextResponse.next();if(await valid(req.cookies.get("ed_session")?.value))return NextResponse.next();const u=req.nextUrl.clone();u.pathname="/login";u.searchParams.set("next",p);return NextResponse.redirect(u)}
 export const config={matcher:["/((?!_next/static|_next/image|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)"]};
