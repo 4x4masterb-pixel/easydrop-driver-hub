@@ -1,0 +1,1 @@
+import crypto from "node:crypto";const p=process.argv[2];if(!p){console.error("Usage: node scripts/make-password-hash.mjs 'password'");process.exit(1)}const salt=crypto.randomBytes(16).toString("hex");console.log(salt+":"+crypto.scryptSync(p,salt,32).toString("hex"));
